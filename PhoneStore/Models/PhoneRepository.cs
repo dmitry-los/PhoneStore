@@ -28,7 +28,7 @@ namespace PhoneStore.Models
         {
             using (var context = new PhoneContext())
             {
-                return context.Phones;
+                return context.Phones.ToList();
             }
         }
     }

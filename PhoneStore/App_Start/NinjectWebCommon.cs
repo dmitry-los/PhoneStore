@@ -62,6 +62,7 @@ namespace PhoneStore.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IPhoneRepository>().To<PhoneRepository>();
+            kernel.Bind<IPurchaseRepository>().To<PurchaseRepository>();
         }        
     }
 }

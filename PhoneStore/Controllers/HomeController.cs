@@ -10,10 +10,12 @@ namespace PhoneStore.Controllers
     public class HomeController : Controller
     {
         private IPhoneRepository _phoneRepository;
+        private IPurchaseRepository _purchaseRepository;
 
-        public HomeController(IPhoneRepository phoneRepository)
+        public HomeController(IPhoneRepository phoneRepository, IPurchaseRepository purchaseRepository)
         {
             _phoneRepository = phoneRepository;
+            _purchaseRepository = purchaseRepository;
         }
 
         public ActionResult Index()
@@ -22,6 +24,22 @@ namespace PhoneStore.Controllers
             ViewBag.Phones = phones;
             
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult Buy(int id)
+        {
+            ViewBag.PhoneId = id;
+            return View();
+        }
+
+        [HttpPost]
+        public string Buy(Purchase purchase)
+        {
+            purchase.Date = DateTime.UtcNow;
+            _purchaseRepository.Add(purchase);
+
+            return $"Thanks, {purchase.Person}, for buying. Have a nice day!";
         }
     }
 }

@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Buy";
+}
+
+<div>
+    <h2>Buy</h2>
+    <form method="post" action="">
+        <input type="hidden" value="@ViewBag.PhoneId" name="PhoneId" />
+        <table>
+            <tr>
+                <td><p>Enter your name:</p></td>
+                <td><input type="text" name="Person"/></td>
+            </tr>
+            <tr>
+                <td><p>Enter your address</p></td>
+                <td><input type="text" name="Address"/></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Send"/></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
