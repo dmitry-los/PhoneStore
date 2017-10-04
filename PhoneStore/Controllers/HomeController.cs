@@ -20,8 +20,7 @@ namespace PhoneStore.Controllers
         {
             var phones = _phoneRepository.GetAll();
             ViewBag.Phones = phones;
-
-
+            
             return View();
         }
     }
